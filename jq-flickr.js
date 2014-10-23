@@ -1,7 +1,8 @@
 /**********************************************************
  * General settings  
  **********************************************************/
-
+	
+	//*** Your flickr api key goes here:
 	var apik = '';
 	var imageSelectedClass='selected';
 	var imageNotSelectedClass='unselected';
@@ -21,7 +22,6 @@
 function flickrSearch(apiKey,keyword,page)	{
 	$.getJSON(
 		'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+ apiKey +'&text='+ keyword +'&extras=url_s&page='+page+'&per_page=15&format=json&jsoncallback=?',
-
 		function(results){
     		$.each(results.photos.photo, function(i,item){
 				var photoURL=item.url_s;
@@ -57,13 +57,10 @@ function flickrPhotoInfo(apiKey, photoID)	{
 
 $(document).ready(function(){
 	
-	//jQuery('<img alt="" />').attr('id', 'loader').attr('src', 'ajax-loader.gif').appendTo(imageContainerId);
-	
-	/* Define what happens when search form is submitted:
+	 /* Define what happens when search form is submitted:
 	 * 		1-Prevent form submission (default form behavior)
 	 * 		2-Retrieve search keyword and page from form
-	 * 		3-Do search on flickr, get photos
-	 * 		4-Show photos										*/
+	 * 		3-Do search on flickr, show photos					*/
 	
 	$('#'+searchFormId).submit(function(event){
 	
@@ -93,10 +90,7 @@ $(document).ready(function(){
 		  		if (!jsonImages) {
 		  			jsonImages=$.makeArray(pInfo);
 		  		} else {
-					jsonImages=jsonImages.concat($.makeArray(pInfo)); //=$.extend({}, jsonImages, pInfo);
-					$('#'+imageContainerId).empty();
-					$('#'+imageContainerId).append('<br/>'+JSON.stringify(jsonImages[0])+'<br/><br/><br/><br/>');
-					$('#'+imageContainerId).append('<br/><br/><br/><br/><br/>'+JSON.stringify(jsonImages[1])+'<br/>');
+					jsonImages=jsonImages.concat($.makeArray(pInfo));
 				}
 			});
 		});
