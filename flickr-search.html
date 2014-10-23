@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		 <link rel="stylesheet" href="style.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="jq-flickr.js"></script>
+		
+		<title>Search flickr and select images</title>
+	</head>
+
+	<body>
+		<form id="search-form"  action="#">
+			<p>Enter search keyword or phrase:</p>
+			<input type="text" id="search-field" value="purple flower" />
+			<p>Enter number of page of results to fetch:</p>
+			<input type="text" id="page-field" value="1"/>
+			<input type="submit" value="Search" />
+		</form>
+		<div id="image-container"></div>
+		<form id="submit-form">
+			<input type="submit" value="Submit Selection" />
+		</form>
+	</body>
+</html>
