@@ -23,4 +23,3 @@ span.author {font-size: 10px;}
 img {width:200px;height:200px;margin:10px;}
 img.selected {border-width:10px;border-color:green;border-style:solid;}
 img.unselected {border-width:0px;border-style:none;}
-#image-container{width:980px;height:450px;margin:10px;}

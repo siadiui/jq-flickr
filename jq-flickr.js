@@ -3,7 +3,7 @@
  **********************************************************/
 	
 	//*** Your flickr api key goes here:
-	var apik = '';
+	var apik = '7fbba6dc87a44ff109a1e652cd481a52';
 	var imageSelectedClass='selected';
 	var imageNotSelectedClass='unselected';
 	var imageContainerId='image-container';
@@ -21,7 +21,7 @@
 
 function flickrSearch(apiKey,keyword,page)	{
 	$.getJSON(
-		'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+ apiKey +'&text='+ keyword +'&extras=url_s&page='+page+'&per_page=15&format=json&jsoncallback=?',
+		'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+ apiKey +'&text='+ keyword +'&extras=url_s&page='+page+'&per_page=100&format=json&jsoncallback=?',
 		function(results){
     		$.each(results.photos.photo, function(i,item){
 				var photoURL=item.url_s;
@@ -69,6 +69,7 @@ $(document).ready(function(){
 		var searchKeyword=$('#'+keywordFieldId).val(); 
 		var searchPage=$('#'+pageFieldId).val();
 
+		$('#'+imageContainerId).empty();
 		flickrSearch(apik,searchKeyword,searchPage);
 	});
 	
